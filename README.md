@@ -2,16 +2,38 @@
 
 Open-source Claude Cowork automations for a daily AI research-paper digest and Reddit AI news briefing. AI moves fast: for the past four months, I have used these workflows to keep pace with new papers and the conversations shaping the field. Customize them for your interests, then have Claude deliver a useful daily brief to your inbox.
 
+```mermaid
+flowchart LR
+    P[New research papers] --> F[Filter and avoid repeats]
+    R[Reddit AI signals] --> F
+    F --> B[Daily inbox brief]
+
+    classDef papers fill:#f6c945,stroke:#7a5a00,color:#171717
+    classDef signals fill:#4fd1c5,stroke:#146b63,color:#102a27
+    classDef filter fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef brief fill:#fb8b7c,stroke:#a43f32,color:#35120e
+
+    class P papers
+    class R signals
+    class F filter
+    class B brief
+```
+
 This repo includes:
 
 - `prompts/Daily-ai-papers-digest.md`: emails three recent papers matched to your research interests.
 - `prompts/Daily-ai-updates.md`: emails a concise AI digest from selected Reddit communities.
 
-## Use with Claude Cowork
+**The daily loop:** discover, filter, avoid repeats, and deliver a brief worth reading.
 
-1. Copy a prompt into a new daily Claude Cowork automation.
-2. Replace every `{{TAG}}` with your own information and file paths.
-3. Connect the required tools, authorize them, and schedule the automation.
+The prompt files and all prompt-specific instructions live in the [`prompts/`](prompts) folder.
+
+## Use with Claude Code
+
+1. Open the Claude Code app and select **Scheduled** in the upper-left navigation.
+2. Click **New Task**, then copy the contents of a prompt from the [`prompts/`](prompts) folder into the task.
+3. Replace every `{{TAG}}` with your own information and file paths.
+4. Connect the required tools, authorize them, and schedule the task to run daily.
 
 Both automations need a writable workspace for their history JSON files, which prevent duplicate recommendations. Initialize `paper_history.json` with `{ "papers": [] }` and `ai_digest_history.json` with `{}`.
 
