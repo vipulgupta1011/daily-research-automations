@@ -2,6 +2,8 @@
 
 Open-source Claude Cowork automations for a daily AI research-paper digest and Reddit AI news briefing. AI moves fast: for the past four months, I have used these workflows to keep pace with new papers and the conversations shaping the field. Customize them for your interests, then have Claude deliver a useful daily brief to your inbox.
 
+Each scheduled automation sends its own email: one for research papers and one for AI updates.
+
 ```mermaid
 flowchart LR
     P[New research papers] --> PF[Match interests and avoid repeats]
