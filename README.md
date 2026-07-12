@@ -4,19 +4,20 @@ Open-source Claude Cowork automations for a daily AI research-paper digest and R
 
 ```mermaid
 flowchart LR
-    P[New research papers] --> F[Filter and avoid repeats]
-    R[Reddit AI signals] --> F
-    F --> B[Daily inbox brief]
+    P[New research papers] --> PF[Match interests and avoid repeats]
+    PF --> PE[Daily AI Papers email]
+    R[Reddit AI signals] --> RF[Filter by recency and avoid repeats]
+    RF --> RE[Daily AI Updates email]
 
     classDef papers fill:#f6c945,stroke:#7a5a00,color:#171717
     classDef signals fill:#4fd1c5,stroke:#146b63,color:#102a27
     classDef filter fill:#dbeafe,stroke:#2563eb,color:#172554
-    classDef brief fill:#fb8b7c,stroke:#a43f32,color:#35120e
+    classDef email fill:#fb8b7c,stroke:#a43f32,color:#35120e
 
     class P papers
     class R signals
-    class F filter
-    class B brief
+    class PF,RF filter
+    class PE,RE email
 ```
 
 This repo includes:
@@ -24,7 +25,7 @@ This repo includes:
 - `prompts/Daily-ai-papers-digest.md`: emails three recent papers matched to your research interests.
 - `prompts/Daily-ai-updates.md`: emails a concise AI digest from selected Reddit communities.
 
-**The daily loop:** discover, filter, avoid repeats, and deliver a brief worth reading.
+**Two daily loops:** discover, filter, avoid repeats, and deliver a focused email.
 
 The prompt files and all prompt-specific instructions live in the [`prompts/`](prompts) folder.
 
